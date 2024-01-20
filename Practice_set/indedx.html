@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Press Key
+
+
+    <script>
+        document.addEventListener('keydown', (e) => {
+            switch (e.key) {
+                case 'r':
+                    document.body.style.background = 'red'
+                    break;
+                case 'f':
+                    document.body.innerHTML = 'Farhan Faryad';
+                    break;
+                case 'a':
+                    document.body.innerHTML = 'Azan Faryad';
+                    break;
+                    default:
+                    document.body.innerHTML = 'JHKHAKDSJDJ';
+                    break;
+            }
+        })
+    </script>
+</body>
+
+</html>
