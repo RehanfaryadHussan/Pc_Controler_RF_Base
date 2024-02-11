@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -149,4 +149,52 @@
       </section>
     </div>
   </body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Text Checker</title>
+<style>
+    .highlight {
+        background-color: #aaffaa; /* Background color for highlighted text */
+    }
+</style>
+</head>
+<body>
+
+<label for="textInput">Enter text to highlight:</label>
+<input type="text" id="textInput">
+
+<p id="paragraph">This is a sample paragraph. You can enter text above to highlight it within this paragraph.</p>
+
+<script>
+    // Function to highlight text
+    function highlightText() {
+        var inputText = document.getElementById('textInput').value.trim();
+        var paragraph = document.getElementById('paragraph');
+        var paragraphText = paragraph.textContent;
+
+        // Remove previous highlights
+        paragraph.innerHTML = paragraphText;
+
+        // Escape special characters in the input text
+        var escapedInputText = inputText.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+
+        // Create a regular expression to match the input text
+        var regex = new RegExp('(' + escapedInputText + ')', 'gi');
+
+        // Highlight matching text
+        paragraph.innerHTML = paragraph.innerHTML.replace(regex, function(match, p1) {
+            return '<span class="highlight">' + p1 + '</span>';
+        });
+    }
+
+    // Add event listener to input field
+    var input = document.getElementById("textInput");
+    input.addEventListener("input", highlightText);
+</script>
+
+</body>
 </html>
