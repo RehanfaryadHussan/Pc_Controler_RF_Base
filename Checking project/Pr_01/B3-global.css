@@ -6,7 +6,9 @@
     text-decoration: none;
     font-family: var(--family);
 }
-
+html{
+    font-size: 16px;
+}
 .container {
     margin: 0 auto;
     padding: 10px;
@@ -45,7 +47,7 @@
     --pmic: #080038;
     --pmis: .85rem;
 
-    --c1: red;
+    --c1: #ffffff;
     --c2: red;
     --c3: red;
     --c4: red;
@@ -96,7 +98,6 @@
     align-items: center;
     justify-content: center;
 }
-
 .p {
     padding: 10px;
 }
@@ -245,4 +246,7 @@ img[src] {
 }
 .bg5{
     background-color: var(--c5);
+}
+.m0a{
+    margin: 0 auto;
 }
