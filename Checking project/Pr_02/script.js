@@ -1,5 +1,11 @@
 let boxes = document.querySelectorAll(".controler button");
 let turn = "X";
+let userWins = 0,CPUwins = 0;
+let userWinsPlace = document.querySelector('.user .sc');
+let CPUWinsPlace = document.querySelector('.computer .sc');
+let StatusPlace = document.querySelector('.st');
+userWinsPlace.innerHTML = userWins
+CPUWinsPlace.innerHTML = CPUwins
 let changeTurn = () => {
   return (turn = turn == "O" ? "X" : "O");
 };
@@ -46,6 +52,7 @@ let autoInserter = (a = true) => {
   let box = boxes[Random];
   if (box.textContent == "") {
     box.textContent = changeTurn();
+    StatusPlace.innerHTML = `Your Turn`
   } else {
     autoInserter();
   }
@@ -91,10 +98,16 @@ let CheckWinner = async () => {
     if (textline.every((aaa) => aaa === "X")) {
       changeColor(a, b, c, "Green");
       console.log("X");
+      userWins++
+      userWinsPlace.innerHTML = userWins
+      StatusPlace.innerHTML = 'You Won'
       D_W_C_D(a, b, c);
     } else if (textline.every((aaa) => aaa === "O")) {
       changeColor(a, b, c, "Red");
       console.log("O");
+      CPUwins++
+      CPUWinsPlace.innerHTML = CPUwins
+      StatusPlace.innerHTML = 'You Lose'
       D_W_C_D(a, b, c);
     }
   }
@@ -103,19 +116,23 @@ let main;
 let D_W_C_D = async (a, b, c) => {
   disablingBtns();
   await clean();
+  StatusPlace.innerHTML = 'Text Cleaned';
+  await wait()
+  StatusPlace.innerHTML = 'Your Turn';
   disabledBtns();
-  changeColor(a, b, c, "Black");
+  changeColor(a, b, c, "white");
 };
 (async function main() {
   boxes.forEach((e) => {
     e.addEventListener("click", async () => {
       if (e.textContent == "") {
         e.textContent = changeTurn();
+        StatusPlace.innerHTML = 'CPU Turn'
         disablingBtns();
         CheckWinner();
+        checkText()
         await wait();
         autoInserter();
-
         CheckWinner();
       }
     });

@@ -1,5 +1,5 @@
 window.addEventListener("load", () => {
-  alert("Starting the Quiz.\n You have only 60s.");
+  alert("Starting the Quiz.\n You have only 120s.");
 });
 let Quiz = [
   {
@@ -117,7 +117,7 @@ let diddisable = () => {
   document.querySelectorAll(".options button").forEach((e) => {
     e.removeAttribute("disabled");
   });
-};
+}
 let removeClass = () => {
   document.querySelectorAll(".options button").forEach((e) => {
     e.classList.remove("correct");
@@ -131,7 +131,7 @@ let check = (e) => {
   }
 };
 let IsCorrect = () => {
-  let options = document.querySelectorAll(".options button");
+  let options = document.querySelectorAll(".options button")
   options.forEach((e) => {
     e.addEventListener("click", check);
   });
@@ -157,9 +157,12 @@ let Answers = () => {
     const element = Quiz[j].options.correct;
     ans.innerHTML =
       ans.innerHTML +
-      `<h3 title='${Quiz[j].question}'>Answer of Q.No.${
-        j + 1
-      } : ${element}</h3>`;
+      `<h3 title='${Quiz[j].question}
+      1 : ${Quiz[j].options.a}
+      2 : ${Quiz[j].options.b}
+      3 : ${Quiz[j].options.c}
+      4 : ${Quiz[j].options.d}
+      Correct : ${Quiz[j].options.correct}'>Answer of Q.No.${j + 1} : ${element}</h3>`;
   }
   controler.append(ans);
 };
@@ -213,7 +216,7 @@ let time = () => {
   }
 };
 let timer = () => {
-  Seconds = 300;
+  Seconds = 120;
   timerI = setInterval(time, 1000);
 };
 
@@ -222,5 +225,7 @@ timer();
 
 let hack = {
     timer: "Seconds",
+    Questions: "Quiz[questionIndex]",
+    totalCorrect: "corr",
     Ans: "Quiz[questionIndex].options.correct"
 }
