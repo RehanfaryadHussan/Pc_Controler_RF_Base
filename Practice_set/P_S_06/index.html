@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input Uload</title>
+  </head>
+  <body>
+    <input type="file" id="input" accept=".png" />
+    <img alt="Image" />
+    <script>
+      let input = document.querySelector("#input");
+      let img = document.querySelector("img");
+      input.addEventListener("change", (e) => {
+        let file = new FileReader();
+        file.addEventListener("load", (e) => {
+          let path = file.result;
+          img.setAttribute("src", path);
+          sessionStorage.setItem("img", path);
+        });
+        file.readAsDataURL(input.files[1 - 1]);
+      });
+      window.addEventListener("load", (e) => {
+        let path = sessionStorage.getItem("img");
+        img.setAttribute("src", path);
+      });
+    </script>
+  </body>
+</html>

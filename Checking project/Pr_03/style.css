@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Timmana&display=swap");
+:root {
+  --container: 500px;
+}
+.font {
+  font-family: "Timmana", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
+}
+.font2 {
+  font-family: "Timmana", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1rem;
+}
+.us {
+  user-select: none;
+}
+.controler {
+  max-width: 550px;
+  margin: 0 auto;
+}
+.controler button {
+  width: 100px;
+  height: 100px;
+  margin: 1px;
+  border-radius: 10px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.white {
+  background-color: white;
+}
+.eee {
+  background-color: #aaa;
+}
+.face {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+svg{
+  cursor: pointer;
+}

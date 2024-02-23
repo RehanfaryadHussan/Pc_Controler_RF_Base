@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="search">
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <button>Click</button>
+    <script>
+        document.querySelector('button').addEventListener('click',(e)=>{
+            a();
+        })
+
+        let a = (e)=>{
+            let ToFind = document.querySelector('input').value;
+            let text = document.querySelector('textarea').value
+            let rehan = text.match(ToFind);
+            let ele = `<h1>${rehan[0]}</h1>`
+            document.body.innerHTML += ele;
+        }
+    </script>
+</body>
+</html>
